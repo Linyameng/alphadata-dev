@@ -1,0 +1,32 @@
+
+
+<ul class="nav nav-pills nav-stacked">
+    {% if  bb ==2 or bb==3 or bb == 4%}
+        <li><a href="{{ url_for('core.sql_area_execute') }}">在线SQL查询</a></li>
+    {% endif %}
+    {% if  bb ==4 or bb==3 or bb ==2 %}
+     <li><a href="{{ url_for('core.quick_sql') }}">SQL保存记录</a></li>
+    {% endif %}
+    {% if bb==3%}
+        <li><a href="{{ url_for('core.test_env') }}">添加数据库信息</a></li>
+        <li><a href="{{ url_for('core.role_action') }}">权限管理</a></li>
+    {% endif %}
+</ul>
+
+<!--<ul class="nav nav-pills nav-stacked">
+     <li><a href="{{ url_for('core.query_fund_code') }}">查询产品信息</a></li>
+    <li><a href="{{ url_for('core.query_deal_order') }}">查询订单信息</a></li>
+    <li><a href="{{ url_for('core.query_notify_deal_order') }}">查询无需通知订单</a></li>
+    <li><a href="{{ url_for('core.query_cust_book') }}">查询客户持仓</a></li>
+    <li><a href="{{ url_for('core.query_cust_info') }}">查询客户信息</a></li>
+    <li><a href="{{ url_for('core.query_data_dict') }}">查询数据库字典</a></li>
+    <li><a href="{{ url_for('core.forge_cust_info') }}">随机生成身份证</a></li>
+     <li><a href="{{ url_for('core.forge_cust_info') }}">随机生成身份证</a></li>
+    <li><a href="{{ url_for('core.quick_add_account') }}">快速开户绑卡</a></li>
+    <li><a href="{{ url_for('core.update_batch_flow') }}">重置批处理节点</a></li>
+</ul>
+
+<ul class="nav nav-pills nav-stacked">
+
+</ul>
+-->

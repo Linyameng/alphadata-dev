@@ -1,0 +1,35 @@
+<div class="table-responsive bg-active">
+
+<div>
+
+<h4>开户结果:</h4>
+
+<table class="table table-bordered table-hover table-border-aline table-condensed table-striped">
+
+<tr>
+<th>身份证号码</th>
+<th>客户姓名</th>
+<th>手机号码</th>
+<th>银行卡号</th>
+<th>登录密码</th>
+<th>交易密码</th>
+<th>开户结果</th>
+</tr>
+
+{% for data in rand_data %}
+
+<tr>
+    <td >{{ data[0] }}</td>
+    <td >{{ data[1] }}</td>
+    <td >{{ data[2] }}</td>
+    <td >{{ data[3] }}</td>
+    <td >qq1111</td>
+    <td >121212</td>
+    <td >{{ data[4] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+</div>

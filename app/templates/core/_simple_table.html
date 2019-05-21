@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title><style type="text/css">
+    body{
+    }
+    table .table-striped{
+    }
+    table th{
+        text-align: left;
+        height: 30px;
+        background: #deeeee;
+        padding: 5px;
+        margin: 0;
+        border: 0px;
+    }
+    table td{
+        text-align: left;
+        height:30px;
+        margin: 0;
+        padding: 5px;
+        border:0px
+    }
+    table a{
+        text-align: left;
+    }
+    table tr:hover{
+        text-align: left;
+        background: #eeeeee;
+    }
+    .span6{
+        /*width:500px;*/
+        float:left;
+        margin:10px;
+    }
+    #pagiDiv span{
+        background:#eff3f714;
+        border-radius: .2em;
+        padding:5px;
+    }
+</style>
+    <script type="text/javascript" src="../static/js/pagination.js"></script>
+    <script type="text/javascript">
+        //全局变量
+        var numCount;       //数据总数量
+        var columnsCounts;  //数据列数量
+        var pageCount;      //每页显示的数量
+        var pageNum;        //总页数
+        var currPageNum ;   //当前页数
+
+        //页面标签变量
+        var blockTable;
+        var preSpan;
+        var firstSpan;
+        var nextSpan;
+        var lastSpan;
+        var pageNumSpan;
+        var currPageSpan;
+
+
+
+        window.onload=function(){
+            //页面标签变量
+            blockTable = document.getElementById("blocks");
+            preSpan = document.getElementById("spanPre");
+            firstSpan = document.getElementById("spanFirst");
+            nextSpan = document.getElementById("spanNext");
+            lastSpan = document.getElementById("spanLast");
+            pageNumSpan = document.getElementById("spanTotalPage");
+            currPageSpan = document.getElementById("spanPageNum");
+
+            numCount = document.getElementById("blocks").rows.length - 1;       //取table的行数作为数据总数量（减去标题行1）
+            //alert(numCount)
+            columnsCounts = blockTable.rows[0].cells.length;
+            pageCount = 10;
+            pageNum = parseInt(numCount/pageCount);
+            if(0 != numCount%pageCount){
+                pageNum += 1;
+            }
+
+            firstPage();
+        };
+    </script>
+</head>
+<body align="left">
+<div class="table-responsive bg-active">
+
+{% if  hint_name %}
+<br />
+<p align="left" style="color:red;">没有where条件只能查前十条数据</p>
+{% endif %}
+{% if 'tab_name' in tab %}
+<br />
+<p>表名：{{ tab['tab_name'] | lower }} &nbsp;&nbsp; 表注释：{{ tab['tab_comment'] }}</p>
+{% endif %}
+
+<table id="blocks" class="table table-bordered table-hover table-border-aline table-condensed table-striped">
+
+{% if 'columns' in tab %}
+<tr>
+ {% for title in tab['columns'] %}
+    <th>{{ title }}</th>
+{% endfor %}
+</tr>
+{% endif %}
+
+{% if 'col_comments' in tab %}
+<tr>
+{% for comment in tab['col_comments'] %}
+    {% if comment %}
+         <td>{{ comment }}</td>
+    {% else %}
+        <td class="active"></td>
+    {% endif %}
+{% endfor %}
+</tr>
+{% endif %}
+
+{% if 'data' in tab or tab['data'] %}
+{% for row in tab['data'] %}
+<tr>
+    {% for cell in row %}
+        {% if cell %}
+         <td>{{ cell }}</td>
+        {% else %}
+        <td></td>
+        {% endif %}
+    {% endfor %}
+</tr>
+{% endfor %}
+{% endif %}
+
+</table>
+ <div id="pagiDiv" align="left" style="width:1200px">
+        <span id="spanFirst">首页</span>
+        <span id="spanPre">上一页</span>
+        <span id="spanNext">下一页</span>
+        <span id="spanLast">尾页</span>
+        第 <span id="spanPageNum"></span> 页/共<span id="spanTotalPage"></span> 页
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="data-dev.sqlite" uuid="6a19470b-5985-4068-abb0-8af71e3b68c1">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+  </component>
+</project>

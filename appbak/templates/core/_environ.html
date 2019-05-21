@@ -1,0 +1,22 @@
+<div class="table-responsive bg-active">
+
+<div>
+<table class="table table-bordered table-hover table-border-aline table-condensed table-striped">
+
+<tr>
+<th>id</th>
+<th>数据库实例名</th>
+<th>数据连接</th>
+<th>数据密码</th>
+</tr>
+{% for env in tab_data %}
+<tr>
+    <td >{{ env.id }}</td>
+    <td >{{ env.user_prefix }}</td>
+    <td >{{ env.tms_dsn }}</td>
+    <td>{{ env.db_password }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>

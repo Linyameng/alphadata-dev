@@ -1,0 +1,22 @@
+<div class="table-responsive bg-active">
+
+<div>
+<table class="table table-bordered table-hover table-border-aline table-condensed table-striped">
+
+<tr>
+<th>id</th>
+<th>邮箱</th>
+<th>用户名</th>
+<th>权限</th>
+</tr>
+{% for env in tab_data %}
+<tr>
+    <td >{{ env.User.id }}</td>
+    <td >{{ env.User.email }}</td>
+    <td >{{ env.User.username }}</td>
+    <td>{{ env.Role.name }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
