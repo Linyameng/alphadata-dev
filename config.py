@@ -14,7 +14,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hello flask!'
     os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
     FLASK_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASK_MAIL_SENDER = 'yang.zhou <yang.zhou@example.com>'
+    FLASK_MAIL_SENDER = 'XXXXXXXXXX作者'
     # SQLALCHEMY_POOL_SIZE = 20
     # SQLALCHEMY_POOL_RECYCLE = 3000
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
@@ -29,7 +29,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev1.sqlite')
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:howbuy1!@10.12.110.167:3306/flaskTrade?charset=utf8"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:XXXXXX@XXXXXXX:3306/flaskTrade?charset=utf8"
     SQLALCHEMY_BINDS = {
         'private': 'sqlite:///' + os.path.join(basedir, 'private-data.sqlite'),
     }
@@ -37,12 +37,12 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
-    sSQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:howbuy1!@10.12.110.167:3306/flaskTrade?charset=utf8"
+    sSQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:XXXXXX@XXXXXXXXX:3306/flaskTrade?charset=utf8"
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:howbuy1!@10.12.110.167:3306/flaskTrade?charset=utf8"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:XXXXX@XXXXXX:3306/flaskTrade?charset=utf8"
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'pro-data.sqlite')
 
 
